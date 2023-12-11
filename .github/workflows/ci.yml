@@ -4,13 +4,13 @@ on:
   pull_request:
     branches: [main]
 
-jobs:  
+jobs:
   style:
     name: Style
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 19.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -25,9 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 19.x]
+        node-version: [18.x]
     steps:
-      - uses:  actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with: ${{ matrix.node-version }}
