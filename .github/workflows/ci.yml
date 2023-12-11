@@ -8,28 +8,24 @@ jobs:
   style:
     name: Style
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v4
-        with: ${{ matrix.node-version }}
+        with:
+          node-version: 18.x
       - run: npm ci
       - run: npm run format
 
   test:
     name: Tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v4
-        with: ${{ matrix.node-version }}
+        with:
+          node-version: 18.x
       - run: npm ci
       - run: npm run test:ci
