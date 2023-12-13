@@ -8,9 +8,12 @@
     "start": "next start",
     "format": "npx @biomejs/biome check --apply ./src",
     "test:staged": "vitest --changed",
-    "test:ci": "vitest --coverage ./src"
+    "test:ci": "vitest --coverage ./src",
+    "migrations:generate": "drizzle-kit generate:mysql"
   },
   "dependencies": {
+    "@planetscale/database": "^1.11.0",
+    "@prisma/client": "^5.7.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
@@ -26,6 +29,7 @@
     "autoprefixer": "^10.0.1",
     "jsdom": "^23.0.1",
     "postcss": "^8",
+    "prisma": "^5.7.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "vitest": "^1.0.4"
