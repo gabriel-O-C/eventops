@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model Massage {
+  id             Int            @id @default(autoincrement())
+  player_name    String
+  time           Int
+  payment_method PaymentMethods
+  total          Float
+  leader_total   Float
+
+  @@map("massages")
+}
+
+enum PaymentMethods {
+  PIX
+  CHIPS
+  MONEY
+
+  @@map("payment_methods")
+}
